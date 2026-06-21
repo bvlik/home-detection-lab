@@ -1,0 +1,25 @@
+title: Suspicious Sudo Execution To Root
+id: 9b8c7d6e-5f4a-4b3c-8d2e-1f0a9b8c7d6e
+status: experimental
+description: Detects sudo execution running a shell as root, a common privilege escalation / hands-on-keyboard indicator.
+references:
+  - https://attack.mitre.org/techniques/T1548/003/
+author: bvlik
+date: 2026/06/21
+logsource:
+  product: linux
+  service: auth
+detection:
+  selection:
+    message|contains: 'sudo:'
+  shell:
+    message|contains:
+      - 'COMMAND=/bin/bash'
+      - 'COMMAND=/bin/sh'
+  condition: selection and shell
+falsepositives:
+  - Administrators legitimately opening a root shell
+level: low
+tags:
+  - attack.privilege_escalation
+  - attack.t1548.003

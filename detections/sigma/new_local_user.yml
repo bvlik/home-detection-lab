@@ -1,0 +1,21 @@
+title: New Local User Account Created
+id: 2a3b4c5d-6e7f-4081-9a2b-3c4d5e6f7081
+status: experimental
+description: Detects creation of a new local user account, which adversaries use for persistence.
+references:
+  - https://attack.mitre.org/techniques/T1136/001/
+author: bvlik
+date: 2026/06/21
+logsource:
+  product: linux
+  service: auth
+detection:
+  selection:
+    message|contains: 'new user'
+  condition: selection
+falsepositives:
+  - Legitimate account provisioning by administrators
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1136.001
