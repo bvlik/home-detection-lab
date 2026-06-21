@@ -1,0 +1,4 @@
+Jun 21 08:01:10 victim sshd[1100]: Accepted publickey for deploy from 198.51.100.10 port 40110 ssh2
+Jun 21 08:14:55 victim sshd[1108]: Accepted password for alice from 198.51.100.11 port 40130 ssh2
+Jun 21 09:02:03 victim sshd[1190]: Failed password for bob from 198.51.100.12 port 40190 ssh2
+Jun 21 09:20:41 victim sshd[1205]: Accepted publickey for deploy from 198.51.100.10 port 40220 ssh2
