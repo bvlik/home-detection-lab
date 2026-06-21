@@ -2,6 +2,9 @@
 
 # 🧪 home-detection-lab
 
+[![CI](https://github.com/bvlik/home-detection-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/bvlik/home-detection-lab/actions/workflows/ci.yml)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
 **A blue-team detection lab: detection-as-code.**
 Sigma rules, attack → detection scenarios mapped to MITRE ATT&CK, and a small Python detector that runs the SSH brute-force detection against sample logs — no SIEM required to demo.
 
