@@ -1,0 +1,23 @@
+title: SSH Brute Force - Multiple Failed Logins From Single Source
+id: 6f8b1c2a-1d4e-4a9b-9c3a-7e2f0a1b2c3d
+status: experimental
+description: Detects repeated failed SSH password authentications from a single source IP, indicative of brute force or password spraying.
+references:
+  - https://attack.mitre.org/techniques/T1110/001/
+author: bvlik
+date: 2026/06/21
+logsource:
+  product: linux
+  service: auth
+detection:
+  selection:
+    process: sshd
+    message|contains: 'Failed password'
+  timeframe: 5m
+  condition: selection | count() by src_ip > 5
+falsepositives:
+  - Misconfigured automation or a user repeatedly fat-fingering a password
+level: medium
+tags:
+  - attack.credential_access
+  - attack.t1110.001
